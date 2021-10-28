@@ -1,11 +1,12 @@
 package com.melihkarakilinc.ftproject;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class XXBTZUSD{
+public class XETHZUSD {
     @SerializedName("a")
     @Expose
     public List<String> a;
@@ -115,3 +116,4 @@ public class XXBTZUSD{
     }
 
 }
+
