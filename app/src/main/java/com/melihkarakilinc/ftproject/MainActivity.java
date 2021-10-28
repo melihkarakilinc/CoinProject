@@ -23,14 +23,9 @@ public class MainActivity extends AppCompatActivity {
         callXETHZUSD.enqueue(new Callback<Root>() {
             @Override
             public void onResponse(Call<Root> call, Response<Root> response) {
-                if (response.isSuccessful()){
-                    //Log.e("Response",response.body().result.xXBTZUSD.a.get(0).toString());
-                    //Log.e("Response",response.body().error.get(0).toString());
-                    Log.e("Response","suc");
-                    Log.e("Response",response.body().getResult().getXETHZUSD().a.get(0));
-
-
-
+                if (response.isSuccessful()) {
+                    Log.e("Response", "suc");
+                    Log.e("Response", response.body().getResult().getXETHZUSD().a.get(0));
                 }
             }
 

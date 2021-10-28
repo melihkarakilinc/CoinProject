@@ -4,7 +4,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 class APIClient {
-
     //https://api.kraken.com/0/public/Ticker?pair=XBTUSD
     private static Retrofit retrofit = null;
     static Retrofit getClient() {
