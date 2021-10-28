@@ -2,8 +2,14 @@ package com.melihkarakilinc.ftproject;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.melihkarakilinc.ftproject.databinding.ActivityMainBinding;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,28 +17,43 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    MainViewModel viewModel;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding binding =
+                DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        IApi api = APIClient.getClient().create(IApi.class);
+        viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
-        Call<Root> callXBTZUSD = api.GetDataBTCUSD();
-        Call<Root> callXETHZUSD = api.GetDataETHUSD();
-        callXETHZUSD.enqueue(new Callback<Root>() {
+        viewModel.getETHResponse().observe(this, new Observer<Root>() {
             @Override
-            public void onResponse(Call<Root> call, Response<Root> response) {
-                if (response.isSuccessful()) {
-                    Log.e("Response", "suc");
-                    Log.e("Response", response.body().getResult().getXETHZUSD().a.get(0));
-                }
-            }
+            public void onChanged(Root root) {
+                binding.txtEa1.setText(root.getResult().XETHZUSD.a.get(0));
+                binding.txtEa2.setText(root.getResult().XETHZUSD.a.get(1));
+                binding.txtEa3.setText(root.getResult().XETHZUSD.a.get(2));
 
-            @Override
-            public void onFailure(Call<Root> call, Throwable t) {
+                binding.txtEb1.setText(root.getResult().XETHZUSD.b.get(0));
+                binding.txtEb2.setText(root.getResult().XETHZUSD.b.get(1));
+                binding.txtEb3.setText(root.getResult().XETHZUSD.b.get(2));
 
             }
         });
+
+        viewModel.getBTZResponse().observe(this, new Observer<Root>() {
+            @Override
+            public void onChanged(Root root) {
+                binding.txtBa1.setText(root.getResult().XXBTZUSD.a.get(0));
+                binding.txtBa2.setText(root.getResult().XXBTZUSD.a.get(1));
+                binding.txtBa3.setText(root.getResult().XXBTZUSD.a.get(2));
+
+                binding.txtBb1.setText(root.getResult().XXBTZUSD.b.get(0));
+                binding.txtBb2.setText(root.getResult().XXBTZUSD.b.get(1));
+                binding.txtBb3.setText(root.getResult().XXBTZUSD.b.get(2));
+            }
+        });
+
     }
 }

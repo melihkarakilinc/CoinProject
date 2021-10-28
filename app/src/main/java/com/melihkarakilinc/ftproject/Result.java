@@ -6,14 +6,14 @@ import com.google.gson.annotations.SerializedName;
 public class Result {
     @SerializedName("XXBTZUSD")
     @Expose
-    public XXBTZUSD xXBTZUSD;
+    public XXBTZUSD XXBTZUSD;
 
-    public XXBTZUSD getxXBTZUSD() {
-        return xXBTZUSD;
+    public XXBTZUSD getXXBTZUSD() {
+        return XXBTZUSD;
     }
 
-    public void setxXBTZUSD(XXBTZUSD xXBTZUSD) {
-        this.xXBTZUSD = xXBTZUSD;
+    public void setXXBTZUSD(XXBTZUSD XXBTZUSD) {
+        this.XXBTZUSD = XXBTZUSD;
     }
 
     @SerializedName("XETHZUSD")
