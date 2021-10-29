@@ -41,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+//        viewModel.Ea1.observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(String s) {
+//                binding.txtEa1.setText(s);
+//            }
+//        });
 
         viewModel.getBTZResponse().observe(this, new Observer<Root>() {
             @Override
