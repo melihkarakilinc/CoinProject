@@ -14,6 +14,7 @@ public class MainViewModel extends ViewModel {
         //setupNextDates();
         repository = new MainRespository();
     }
+
     //Değerler
     public MutableLiveData<String> Ea1 = new MutableLiveData<>();
 
@@ -23,21 +24,20 @@ public class MainViewModel extends ViewModel {
 
     MutableLiveData<Root> ETHMainResponse;
     MutableLiveData<Root> BTZMainResponse;
+    MutableLiveData<Root> RxETHMainResponse;
+    MutableLiveData<Root> RxBTZMainResponse;
 
-    public LiveData<Root> getETHResponse() {
-
-        if (ETHMainResponse == null) {
-            ETHMainResponse = repository.requestETH();
-            //Ea1.setValue(repository.requestETH().getValue().getResult().XETHZUSD.a.get(0));
+    public LiveData<Root> getRxEth() {
+        if (RxETHMainResponse == null) {
+            RxETHMainResponse = repository.RXrequestETH();
         }
-        return ETHMainResponse;
+        return RxETHMainResponse;
     }
 
-    public LiveData<Root> getBTZResponse() {
-
-        if (BTZMainResponse == null) {
-            BTZMainResponse = repository.requestBTZ();
+    public LiveData<Root> getRxBtz() {
+        if (RxBTZMainResponse == null) {
+            RxBTZMainResponse = repository.RXrequestBTZ();
         }
-        return BTZMainResponse;
+        return RxBTZMainResponse;
     }
 }

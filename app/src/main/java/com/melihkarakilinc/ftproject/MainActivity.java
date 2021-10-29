@@ -1,8 +1,6 @@
 package com.melihkarakilinc.ftproject;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -10,10 +8,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.melihkarakilinc.ftproject.databinding.ActivityMainBinding;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
-        viewModel.getETHResponse().observe(this, new Observer<Root>() {
+        viewModel.getRxEth().observe(this, new Observer<Root>() {
             @Override
             public void onChanged(Root root) {
                 binding.txtEa1.setText(root.getResult().XETHZUSD.a.get(0));
@@ -38,17 +32,10 @@ public class MainActivity extends AppCompatActivity {
                 binding.txtEb1.setText(root.getResult().XETHZUSD.b.get(0));
                 binding.txtEb2.setText(root.getResult().XETHZUSD.b.get(1));
                 binding.txtEb3.setText(root.getResult().XETHZUSD.b.get(2));
-
             }
         });
-//        viewModel.Ea1.observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(String s) {
-//                binding.txtEa1.setText(s);
-//            }
-//        });
 
-        viewModel.getBTZResponse().observe(this, new Observer<Root>() {
+        viewModel.getRxBtz().observe(this, new Observer<Root>() {
             @Override
             public void onChanged(Root root) {
                 binding.txtBa1.setText(root.getResult().XXBTZUSD.a.get(0));
@@ -60,6 +47,5 @@ public class MainActivity extends AppCompatActivity {
                 binding.txtBb3.setText(root.getResult().XXBTZUSD.b.get(2));
             }
         });
-
     }
 }
