@@ -5,7 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Root{
+public class Root {
+
     @SerializedName("error")
     @Expose
     public List<String> error;
@@ -13,6 +14,15 @@ public class Root{
     @SerializedName("result")
     @Expose
     public Result result;
+
+    public Root(List<String> error, Result result) {
+        this.error = error;
+        this.result = result;
+    }
+
+    public Root() {
+
+    }
 
     public List<String> getError() {
         return error;

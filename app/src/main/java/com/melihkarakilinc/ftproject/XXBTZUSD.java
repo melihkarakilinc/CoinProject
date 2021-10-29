@@ -42,6 +42,30 @@ public class XXBTZUSD{
     @Expose
     public String o;
 
+    public XXBTZUSD(List<String> a,
+                    List<String> b,
+                    List<String> c,
+                    List<String> v,
+                    List<String> p,
+                    List<Integer> t,
+                    List<String> l,
+                    List<String> h,
+                    String o) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.v = v;
+        this.p = p;
+        this.t = t;
+        this.l = l;
+        this.h = h;
+        this.o = o;
+    }
+
+    public XXBTZUSD() {
+
+    }
+
     public List<String> getA() {
         return a;
     }

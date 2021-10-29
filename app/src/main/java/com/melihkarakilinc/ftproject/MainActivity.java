@@ -51,11 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                oldValue=Float.parseFloat(binding.txtBa1.getText().toString());
+                oldValue=Float.parseFloat(binding.txtEb1.getText().toString());
                 Float Eb1 = Float.parseFloat(root.getResult().XETHZUSD.b.get(0));
                 binding.txtEb1.setText(Eb1.toString());
                 newValue=Float.parseFloat(binding.txtEb1.getText().toString());
                 binding.txtEb1.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
+
                 //////////////////////////////////////////////////////////////
 
                 oldValue=Float.parseFloat(binding.txtEb2.getText().toString());
