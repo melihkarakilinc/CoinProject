@@ -69,8 +69,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
-                        android:text=""
+                        android:text="61015.7"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="61015.70000" />
 
@@ -80,8 +82,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
-                        android:text=""
+                        android:text="3"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="3" />
 
@@ -91,8 +95,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
-                        android:text=""
+                        android:text="3.0"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="3.000" />
                 </LinearLayout>
@@ -130,8 +136,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
-                        android:text=""
+                        android:text="61015.6"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="61015.60000" />
 
@@ -141,8 +149,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
-                        android:text=""
+                        android:text="1"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="1" />
 
@@ -152,8 +162,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
-                        android:text=""
+                        android:text="1.0"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="1.000" />
                 </LinearLayout>
@@ -222,7 +234,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
+                        android:text="4170.13"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="4170.13000" />
 
@@ -232,8 +247,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
-                        android:text=""
+                        android:text="5"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="5" />
 
@@ -243,8 +260,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
-                        android:text=""
+                        android:text="5.0"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="5.000" />
                 </LinearLayout>
@@ -282,7 +301,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
+                        android:text="4169.88"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="4169.88000" />
 
@@ -292,7 +314,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
+                        android:text="6"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="6" />
 
@@ -302,7 +327,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:background="#FF9800"
                         android:gravity="center"
+                        android:text="36.0"
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         tools:text="36.000" />
                 </LinearLayout>
