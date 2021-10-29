@@ -11,7 +11,6 @@ public class MainViewModel extends ViewModel {
 
 
     public MainViewModel() {
-        //setupNextDates();
         repository = new MainRespository();
     }
     MutableLiveData<Root> RxETHMainResponse;
