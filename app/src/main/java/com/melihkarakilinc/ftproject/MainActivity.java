@@ -1,6 +1,8 @@
 package com.melihkarakilinc.ftproject;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -26,22 +28,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Root root) {
 
+
                 oldValue=Float.parseFloat(binding.txtEa1.getText().toString());
                 Float Ea1 = Float.parseFloat(root.getResult().XETHZUSD.a.get(0));
                 binding.txtEa1.setText(Ea1.toString());
                 newValue=Float.parseFloat(binding.txtEa1.getText().toString());
-                binding.txtEa1.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtEa1.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
+
                 //////////////////////////////////////////////////////////////
+
                 oldValue=Float.parseFloat(binding.txtEa2.getText().toString());
                 binding.txtEa2.setText(root.getResult().XETHZUSD.a.get(1));
                 newValue=Float.parseFloat(binding.txtEa2.getText().toString());
-                binding.txtEa2.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtEa2.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
                 //////////////////////////////////////////////////////////////
                 oldValue=Float.parseFloat(binding.txtEa3.getText().toString());
                 Float Ea3 = Float.parseFloat(root.getResult().XETHZUSD.a.get(2));
                 binding.txtEa3.setText(Ea3.toString());
                 newValue=Float.parseFloat(binding.txtEa3.getText().toString());
-                binding.txtEa3.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtEa3.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
                 //////////////////////////////////////////////////////////////
 
 
@@ -50,20 +55,20 @@ public class MainActivity extends AppCompatActivity {
                 Float Eb1 = Float.parseFloat(root.getResult().XETHZUSD.b.get(0));
                 binding.txtEb1.setText(Eb1.toString());
                 newValue=Float.parseFloat(binding.txtEb1.getText().toString());
-                binding.txtEb1.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtEb1.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
                 //////////////////////////////////////////////////////////////
 
                 oldValue=Float.parseFloat(binding.txtEb2.getText().toString());
                 binding.txtEb2.setText(root.getResult().XETHZUSD.b.get(1));
                 newValue=Float.parseFloat(binding.txtEb2.getText().toString());
-                binding.txtEb2.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtEb2.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
                 //////////////////////////////////////////////////////////////
 
                 oldValue=Float.parseFloat(binding.txtEb3.getText().toString());
                 Float Eb3 = Float.parseFloat(root.getResult().XETHZUSD.b.get(2));
                 binding.txtEb3.setText(Eb3.toString());
                 newValue=Float.parseFloat(binding.txtEb3.getText().toString());
-                binding.txtEb3.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtEb3.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
             }
         });
 
@@ -75,21 +80,21 @@ public class MainActivity extends AppCompatActivity {
                 Float Ba1 = Float.parseFloat(root.getResult().XXBTZUSD.a.get(0));
                 binding.txtBa1.setText(Ba1.toString());
                 newValue=Float.parseFloat(binding.txtBa1.getText().toString());
-                binding.txtBa1.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtBa1.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
 
                 //////////////////////////////////////////////////////////////
 
                 oldValue=Float.parseFloat(binding.txtBa2.getText().toString());
                 binding.txtBa2.setText(root.getResult().XXBTZUSD.a.get(1));
                 newValue=Float.parseFloat(binding.txtBa2.getText().toString());
-                binding.txtBa2.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtBa2.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
 
 
                 oldValue=Float.parseFloat(binding.txtBa3.getText().toString());
                 Float Ba3 = Float.parseFloat(root.getResult().XXBTZUSD.a.get(2));
                 binding.txtBa3.setText(Ba3.toString());
                 newValue=Float.parseFloat(binding.txtBa3.getText().toString());
-                binding.txtBa3.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtBa3.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
 
                 //////////////////////////////////////////////////////////////
 
@@ -97,14 +102,14 @@ public class MainActivity extends AppCompatActivity {
                 Float Bb1 = Float.parseFloat(root.getResult().XXBTZUSD.b.get(0));
                 binding.txtBb1.setText(Bb1.toString());
                 newValue=Float.parseFloat(binding.txtBb1.getText().toString());
-                binding.txtBb1.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtBb1.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
 
                 //////////////////////////////////////////////////////////////
 
                 oldValue=Float.parseFloat(binding.txtBb2.getText().toString());
                 binding.txtBb2.setText(root.getResult().XXBTZUSD.b.get(1));
                 newValue=Float.parseFloat(binding.txtBb2.getText().toString());
-                binding.txtBb2.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtBb2.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
 
                 ///////////////////////////////////////////////////////////////
 
@@ -112,20 +117,20 @@ public class MainActivity extends AppCompatActivity {
                 Float Bb3 = Float.parseFloat(root.getResult().XXBTZUSD.b.get(2));
                 binding.txtBb3.setText(Bb3.toString());
                 newValue=Float.parseFloat(binding.txtBb3.getText().toString());
-                binding.txtBb3.setBackgroundColor(setColor(oldValue,newValue));
+                binding.txtBb3.setBackgroundColor(Color.parseColor(setColor(oldValue,newValue)));
             }
         });
     }
 
-    private Integer setColor(Float oldValue,Float newValue){
-        Integer color = R.color.black;
+    private String setColor(Float oldValue,Float newValue){
+        String color;
 
         if (oldValue > newValue) {
-            color=R.color.red;
+            color="#FB0808";
         } else if (oldValue < newValue) {
-            color=(R.color.green);
+            color="#07ED10";
         } else {
-            color=(R.color.black);
+            color="#FF9800";
         }
         return color;
     }
