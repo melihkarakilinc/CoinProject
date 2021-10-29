@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="viewmodel"
             type="com.melihkarakilinc.ftproject.MainViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -71,6 +71,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text=""
+                        android:textSize="20sp"
                         tools:text="61015.70000" />
 
                     <TextView
@@ -81,6 +82,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text=""
+                        android:textSize="20sp"
                         tools:text="3" />
 
                     <TextView
@@ -91,6 +93,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text=""
+                        android:textSize="20sp"
                         tools:text="3.000" />
                 </LinearLayout>
 
@@ -129,6 +132,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text=""
+                        android:textSize="20sp"
                         tools:text="61015.60000" />
 
                     <TextView
@@ -139,6 +143,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text=""
+                        android:textSize="20sp"
                         tools:text="1" />
 
                     <TextView
@@ -149,6 +154,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text=""
+                        android:textSize="20sp"
                         tools:text="1.000" />
                 </LinearLayout>
 
@@ -217,7 +223,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@={viewmodel.Ea1}"
+                        android:textSize="20sp"
                         tools:text="4170.13000" />
 
                     <TextView
@@ -228,6 +234,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text=""
+                        android:textSize="20sp"
                         tools:text="5" />
 
                     <TextView
@@ -238,6 +245,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text=""
+                        android:textSize="20sp"
                         tools:text="5.000" />
                 </LinearLayout>
 
@@ -275,6 +283,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:textSize="20sp"
                         tools:text="4169.88000" />
 
                     <TextView
@@ -284,6 +293,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:textSize="20sp"
                         tools:text="6" />
 
                     <TextView
@@ -293,6 +303,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:textSize="20sp"
                         tools:text="36.000" />
                 </LinearLayout>
 

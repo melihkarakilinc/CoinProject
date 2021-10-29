@@ -29,15 +29,30 @@ public class MainViewModel extends ViewModel {
 
     public LiveData<Root> getRxEth() {
         if (RxETHMainResponse == null) {
-            RxETHMainResponse = repository.RXrequestETH();
+            RxETHMainResponse = repository.RXrequestETHFive();
         }
         return RxETHMainResponse;
     }
 
     public LiveData<Root> getRxBtz() {
         if (RxBTZMainResponse == null) {
-            RxBTZMainResponse = repository.RXrequestBTZ();
+            RxBTZMainResponse = repository.RXrequestBTZFive();
         }
         return RxBTZMainResponse;
+    }
+    public LiveData<Long> setColor(Long oldValue, Long newValue) {
+
+        int color =(R.color.black);
+
+        if (oldValue > newValue) {
+            color=R.color.red;
+        } else if (oldValue < newValue) {
+            color=(R.color.green);
+        } else {
+            color=(R.color.black);
+        }
+        MutableLiveData<Long> color2 = new MutableLiveData<>();
+        color2.postValue(Long.parseLong(String.valueOf(color)));
+        return color2;
     }
 }

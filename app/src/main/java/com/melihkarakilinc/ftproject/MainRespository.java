@@ -1,20 +1,17 @@
 package com.melihkarakilinc.ftproject;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import org.jetbrains.annotations.NotNull;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainRespository {
 
@@ -24,80 +21,41 @@ public class MainRespository {
         iApi = APIClient.getClient().create(IApi.class);
     }
 
-    public MutableLiveData<Root> requestETH() {
-
+    @SuppressLint("CheckResult")
+    public MutableLiveData<Root> RXrequestETHFive() {
         MutableLiveData<Root> mutableLiveData = new MutableLiveData<>();
 
-        Call<Root> call = iApi.GetDataETHUSD();
-
-        call.enqueue(new Callback<Root>() {
-            @Override
-            public void onResponse(@NonNull Call<Root> call, @NotNull Response<Root> response) {
-                if (response.isSuccessful()) {
-                    Root RootResponse = response.body();
-                    mutableLiveData.setValue(RootResponse);
-                }
-            }
-            @Override
-            public void onFailure(@NotNull Call<Root> call, @NotNull Throwable t) {
-                Log.e("ETHResponse", "onFailure: " + t.getMessage());
-            }
-        });
-        return mutableLiveData;
-    }
-
-    public MutableLiveData<Root> requestBTZ() {
-
-        MutableLiveData<Root> mutableLiveData = new MutableLiveData<>();
-
-        Call<Root> call = iApi.GetDataBTCUSD();
-
-        call.enqueue(new Callback<Root>() {
-            @Override
-            public void onResponse(@NonNull Call<Root> call, @NotNull Response<Root> response) {
-                if (response.isSuccessful()) {
-                    Root RootResponse = response.body();
-                    mutableLiveData.setValue(RootResponse);
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<Root> call, @NotNull Throwable t) {
-                Log.e("ETHResponse", "onFailure: " + t.getMessage());
-            }
-        });
-        return mutableLiveData;
-    }
-
-    public MutableLiveData<Root> RXrequestETH() {
-        MutableLiveData<Root> mutableLiveData = new MutableLiveData<>();
-
-        CompositeDisposable compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(iApi.getDataETH()
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Consumer<Root>() {
+        Scheduler scheduler = Schedulers.from(Executors.newSingleThreadExecutor());
+        Observable.interval(5, TimeUnit.SECONDS)
+                .flatMap(n ->
+                        iApi.getDataETH()
+                                .retry(3)
+                                .subscribeOn(scheduler))
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Root>() {
             @Override
             public void accept(Root root) throws Exception {
                 mutableLiveData.setValue(root);
             }
-        }));
+        });
         return mutableLiveData;
     }
 
-    public MutableLiveData<Root> RXrequestBTZ() {
+    @SuppressLint("CheckResult")
+    public MutableLiveData<Root> RXrequestBTZFive() {
         MutableLiveData<Root> mutableLiveData = new MutableLiveData<>();
 
-        CompositeDisposable compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(iApi.getDataBTC()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Root>() {
-                    @Override
-                    public void accept(Root root) throws Exception {
-                        mutableLiveData.setValue(root);
-                    }
-                }));
+        Scheduler scheduler = Schedulers.from(Executors.newSingleThreadExecutor());
+        Observable.interval(5, TimeUnit.SECONDS)
+                .flatMap(n ->
+                        iApi.getDataBTC()
+                                .retry(3)
+                                .subscribeOn(scheduler))
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Root>() {
+            @Override
+            public void accept(Root root) throws Exception {
+                mutableLiveData.setValue(root);
+            }
+        });
         return mutableLiveData;
     }
 
